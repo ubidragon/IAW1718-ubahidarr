@@ -1,0 +1,4 @@
++cambiar nombre de carpeta por Ubaldo_Hidalgo_Arriaga
++crear repositorio
++hacer web responsive
++hacer documentos necesarios para el entregable
