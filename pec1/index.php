@@ -1,9 +1,8 @@
 <?php
 	include 'operations.php';
-	connectBBDD();
-	$optionMarca=selectBrand();
-               
-              
+	$conexion=connectBBDD();
+	    
+             
   ?>
 <!DOCTYPE html>
 <html>
@@ -14,34 +13,22 @@
 </head>
 <body>
 <h1>PEC Implantacion de Aplicaciones Web</h1>
+<form method='get' action='index.php'>
 <fieldset>
 
-<select name="marca">
-<?php echo $optionMarca;?>
-</select>
-<select disabled name="model">
-<option>No disponible</option>
-</select>
-<select disabled name="age">
-<option>No disponible</option>
-</select>
-<select disabled name="$sales">
-<option>No disponible</option>
-</select>
+
+<?php
+echo desplegables();
+
+?>
 
 
 </fieldset>
-<a href="#" class="previous">&laquo; Previous
+ <input type="submit" value="Anterior">
+  <input type="submit" value="Siguiente">
+</form>
 
-</a>
-
-<?php
-	if(!isset($optionMarca)){
-		echo '<a href="index.php" class="next">Next &raquo;</a>';
-	}
 	
-?>
-
 
 </body>
 </html>
