@@ -1,0 +1,11 @@
+img{
+	width: 10em;
+	height: 6em;
+}
+
+td, tr{
+	width: 10em;
+	height: 6em;
+	border-style: groove;
+	text-align: center;
+}
