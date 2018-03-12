@@ -20,7 +20,7 @@ function desplegables()
     $sales="";
 
 
-    if(!isset($_GET["marca"]) && !isset($_GET["modelo"]) && !isset($_GET["age"])){
+    if(!isset($_GET["marca"]) && !isset($_GET["modelo"]) && !isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])){
         $html= '<select name="marca">' . selectBrand() . '</select>';
         $html.= "<select disabled name='modelo'>
         <option>No disponible</option>
@@ -31,7 +31,7 @@ function desplegables()
         <select disabled name='sales'>
         <option>No disponible</option>
         </select>";
-    } else if (isset($_COOKIE["marca"]) && !isset($_GET["modelo"]) && !isset($_GET["age"])) {
+    } else if (isset($_COOKIE["marca"]) && !isset($_GET["modelo"]) && !isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])) {
 
         $marca = $_GET["marca"];
         setcookie("marca", $marca);
@@ -44,7 +44,7 @@ function desplegables()
 		<select disabled name='sales'>
 		<option>No disponible</option>
 		</select>";
-    } else if (isset($_COOKIE["marca"]) && isset($_GET["modelo"]) && !isset($_COOKIE["age"])) {
+    } else if (isset($_COOKIE["marca"]) && isset($_GET["modelo"]) && !isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])) {
         $marca = $_COOKIE["marca"];
         $modelo = $_GET["modelo"];
         setcookie("modelo", $modelo);
@@ -59,28 +59,80 @@ function desplegables()
 		<select disabled name='sales'>
 		<option>No disponible</option>
 		</select>";
-    } else if (isset($_COOKIE["marca"]) && isset($_COOKIE["modelo"]) && isset($_GET["age"])) {
+    } else if (isset($_COOKIE["marca"]) && isset($_COOKIE["modelo"]) && isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])) {
         $marca = $_COOKIE["marca"];
-        $modelo = $_GET["modelo"];
-        setcookie("modelo", $modelo);
+        $modelo = $_COOKIE["modelo"];
+        $age = $_GET["age"];
+        setcookie("age", $age);
         $html = " $marca\t-\t";
-        $html .= " $modelo\t";
-        $html .= "<select name='age'>";
-        $html .= "<select name='modelo'>
-		<option>No disponible</option>
-		</select>
-		<select name='age'>
-		<option>No disponible</option>
-		</select>
-		<select  name='sales'>
-		<option>No disponible</option>
+        $html .= " $modelo\t-\t";
+        $html .= insertAge($age)."\t-\t";
+        $html .= "<select  name='sales'>
+		<option value=1> Menos de 1000 </option>
+        <option value=2> Entre 1000 y 3000 </option>
+        <option value=3> Entre 3000 y 6000</option>
+        <option value=4> Mas de 6000</option>
 		</select>";
+    }else if (isset($_COOKIE["marca"]) && isset($_COOKIE["modelo"]) && isset($_COOKIE["age"]) && isset($_GET["sales"]) && !isset($_GET["buscar"])){
+        $marca = $_COOKIE["marca"];
+        $modelo = $_COOKIE["modelo"];
+        $age = $_COOKIE["age"];
+        $sales = $_GET["sales"];
+        setcookie("age", $age);
+        $html = " $marca\t-\t";
+        $html .= " $modelo\t-\t";
+        $html .= insertAge($age)."\t-\t";
+        $html .= insertSales($sales);
+        $html .= '<input name="buscar" formmethod="get" type="submit" value="Buscar">';
+
+    }else if (isset($_COOKIE["marca"]) && isset($_COOKIE["modelo"]) && isset($_COOKIE["age"]) && isset($_COOKIE["sales"]) && isset($_GET["buscar"])){
+        $html.=showCar();
     }
 
     return $html;
 
 }
 
+function insertAge($age){
+    $res = "";
+    switch ($age) {
+        case 1:
+         $res = "Menos de 2 años";  
+            break;
+              case 2:
+          $res = "Entre 2 y 5 años";  
+            break;
+              case 3:
+         $res = "Entre 6 y 10 años";   
+            break;
+              case 4:
+          $res = "Mas de 10 años";
+            break;
+      
+    }
+
+    return $res;
+}
+function insertSales($age){
+    $res = "";
+    switch ($age) {
+        case 1:
+         $res = "Menos de 1000";  
+            break;
+              case 2:
+          $res = "Entre 1000 y 3000 ";  
+            break;
+              case 3:
+         $res = "Entre 3000 y 6000";   
+            break;
+              case 4:
+          $res = "Mas de 6000";
+            break;
+      
+    }
+
+    return $res;
+}
 function selectBrand()
 {
     global $mysql;
@@ -117,65 +169,94 @@ function selectAge($age)
 {
     global $mysql;
     /*Ejemplo de consulta*/
-    $caso = "";
+    $caso = "TIMESTAMPDIFF(YEAR, Fecha_Compra, NOW()) ";
 
     switch ($age) {
         case 1:
-            $caso = "< 2";
+            $caso .= "< 2";
             break;
 
         case 2:
-            $caso = ">=2 AND TIMESTAMPDIFF(YEAR, Fecha_Compra, NOW())<5 ";
+            $caso .= ">=2 AND $caso<5 ";
             break;
         case 3:
-            $caso = "";
+            $caso .= ">=5 AND $caso<10";
             break;
 
         case 4:
-            $caso = "";
+            $caso .= ">=10 ";
             break;
     }
 
-    $consulta = $mysql->query('SELECT ID,Modelo from vehiculos where TIMESTAMPDIFF(YEAR, Fecha_Compra, NOW()) $caso AND ' . selectModel($_COOKIE["modelo"]));
 
-
-    $text = "";
-    $fila = $consulta->fetch_assoc();
-    while ($fila) {
-        $text .= "<option value='{$fila["Modelo"]}'>" .
-            "{$fila["Modelo"]}</option>";
-        $fila = $consulta->fetch_assoc();
-    }
-
-
-    return $text;
+    return $caso;
 }
-
-function selectSales($precio)
+function selectSales($sales)
 {
     global $mysql;
-    $rango = "";
-    if ($precio < 1000) {
-        $rango = "Precio < 1000";
-    } elseif ($precio > 1000 && $precio < 3000) {
-        $rango = "Precio > 1000 AND Precio < 3000";
-    } elseif ($precio > 3000 && $precio < 6000) {
-        $rango = "Precio > 3000 AND Precio < 6000";
-    } elseif ($precio > 6000) {
-        $rango = "Precio > 6000";
+    /*Ejemplo de consulta*/
+    $caso = "Precio_Compra ";
+
+    switch ($sales) {
+        case 1:
+            $caso .= "< 1000.0";
+            break;
+
+        case 2:
+            $caso .= ">=1000.0 AND $caso <3000.0 ";
+            break;
+        case 3:
+            $caso .= ">=3000.0 AND $caso <6000.0 ";
+            break;
+
+        case 4:
+            $caso .= ">=6000.0 ";
+            break;
     }
 
-    $consulta = $mysql->query("SELECT ID FROM vehiculos WHERE $rango");
-    $text = "";
-    $fila = $consulta->fetch_assoc();
+
+    return $caso;
+}
+
+function showCar(){
+
+    global $mysql;
+    $prueba = "esto funciona?";
+    $consulta = $mysql->query('SELECT Marca from vehiculos where Marca = $_COOKIE["marca"] AND Modelo =' 
+        . selectModel($_COOKIE["modelo"]) .' AND ' 
+        .selecAge($_COOKIE["age"]) .' AND ' 
+        .selectSales($_COOKIE["sales"]));
+   
+
+    $text = "<table><tr>";
+    $text .='<th>$_COOKIE["marca"]</th>';
+    $text .='<th>$_COOKIE["modelo"]</th>';
+    $text .='<th>$_COOKIE["sales"]</th></tr><tr>';
+     $fila = $consulta->fetch_assoc();
     while ($fila) {
-        $text .= "<option value='{$fila["Precio"]}'>" .
-            "{$fila["Precio"]}</option>";
+        $text .= "<td>" .
+            "{$fila["Marca"]}</td>";
         $fila = $consulta->fetch_assoc();
     }
+    $text .= "</tr><tr>";
+    $fila2 = $consulta2->fetch_assoc();
+    while ($fila2) {
+        $text .= "<td>" .
+            "{$fila2["Modelo"]}</td>";
+        $fila2 = $consulta2->fetch_assoc();
+    }
+    $text .= "</tr><tr>";
+    $fila3 = $consulta3->fetch_assoc();
+    while ($fila3) {
+        $text .= "<td>" .
+            "{$fila3["Precio"]}</td>";
+        $fila3 = $consulta3->fetch_assoc();
+    }
 
 
-    return $text;
+
+     $text .= "</tr></table>";
+     return $prueba;
 }
 
 ?>
