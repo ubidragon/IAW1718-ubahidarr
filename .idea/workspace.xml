@@ -10,39 +10,27 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pec1/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="operations.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pec1/operations.php">
+        <entry file="file://$PROJECT_DIR$/pec1/web/operations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+            <state relative-caret-position="448">
+              <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
               <folding>
-                <element signature="n#selectAge#0;n#!!top" expanded="false" />
-                <element signature="n#selectSales#0;n#!!top" expanded="false" />
-                <marker date="1520790875413" expanded="true" signature="444:516" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="547:592" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="625:670" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="746:791" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="813:858" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="891:936" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="1009:1054" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="1076:1121" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="1146:1191" ph="..." />
-                <marker date="1520790875413" expanded="true" signature="1299:1337" ph="SELECT DISTI... marcamodelo" />
-                <marker date="1520790875413" expanded="true" signature="1664:1718" ph="SELECT DISTI... marcamodelo" />
-                <marker date="1520790875413" expanded="true" signature="1664:1730" ph="SELECT DISTI... marcamodelo" />
-                <marker date="1520790875413" expanded="true" signature="2426:2515" ph="SELECT ID,Mo... vehiculos" />
-                <marker date="1520790875413" expanded="true" signature="3223:3254" ph="SELECT ID FR... vehiculos" />
+                <marker date="1520881734524" expanded="true" signature="1044:1109" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="1150:1215" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="1258:1323" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="1676:1725" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="1753:1805" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="1848:1900" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="2389:2604" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="2647:2712" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="3278:3516" ph="..." />
+                <marker date="1520881734524" expanded="true" signature="5331:5369" ph="SELECT DISTI... marcamodelo" />
+                <marker date="1520881734524" expanded="true" signature="5696:5758" ph="SELECT DISTI... marcamodelo" />
+                <marker date="1520881734524" expanded="true" signature="7019:7198" ph="SELECT Marca... vehiculos" />
+                <marker date="1520881734524" expanded="true" signature="7283:7463" ph="SELECT Model... vehiculos" />
+                <marker date="1520881734524" expanded="true" signature="7548:7728" ph="SELECT Preci... vehiculos" />
               </folding>
             </state>
           </provider>
@@ -57,6 +45,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pec1/operations.php" />
+        <option value="$PROJECT_DIR$/pec1/web/operations.php" />
       </list>
     </option>
   </component>
@@ -88,8 +77,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -101,6 +90,12 @@
               <item name="IAW1718-ubahidarr" type="b2602c69:ProjectViewProjectNode" />
               <item name="IAW1718-ubahidarr" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pec1" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="IAW1718-ubahidarr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IAW1718-ubahidarr" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pec1" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -138,32 +133,35 @@
       <option name="presentableId" value="Default" />
       <updated>1520790390454</updated>
       <workItem from="1520790394425" duration="556000" />
+      <workItem from="1520852141036" duration="110000" />
+      <workItem from="1520853450518" duration="1364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="556000" />
+    <option name="totallyTimeSpent" value="2030000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
+    <frame x="-4" y="-4" width="1928" height="898" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10572917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -188,25 +186,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pec1/operations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="3856">
+          <caret line="241" column="22" lean-forward="true" selection-start-line="241" selection-start-column="22" selection-end-line="241" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec1/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec1/operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
           <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec1/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec1/operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="88" column="148" lean-forward="false" selection-start-line="88" selection-start-column="122" selection-end-line="88" selection-end-column="148" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec1/web/operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
           <folding>
-            <element signature="n#selectAge#0;n#!!top" expanded="false" />
-            <element signature="n#selectSales#0;n#!!top" expanded="false" />
-            <marker date="1520790875413" expanded="true" signature="444:516" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="547:592" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="625:670" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="746:791" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="813:858" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="891:936" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="1009:1054" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="1076:1121" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="1146:1191" ph="..." />
-            <marker date="1520790875413" expanded="true" signature="1299:1337" ph="SELECT DISTI... marcamodelo" />
-            <marker date="1520790875413" expanded="true" signature="1664:1718" ph="SELECT DISTI... marcamodelo" />
-            <marker date="1520790875413" expanded="true" signature="1664:1730" ph="SELECT DISTI... marcamodelo" />
-            <marker date="1520790875413" expanded="true" signature="2426:2515" ph="SELECT ID,Mo... vehiculos" />
-            <marker date="1520790875413" expanded="true" signature="3223:3254" ph="SELECT ID FR... vehiculos" />
+            <marker date="1520881734524" expanded="true" signature="1044:1109" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="1150:1215" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="1258:1323" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="1676:1725" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="1753:1805" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="1848:1900" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="2389:2604" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="2647:2712" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="3278:3516" ph="..." />
+            <marker date="1520881734524" expanded="true" signature="5331:5369" ph="SELECT DISTI... marcamodelo" />
+            <marker date="1520881734524" expanded="true" signature="5696:5758" ph="SELECT DISTI... marcamodelo" />
+            <marker date="1520881734524" expanded="true" signature="7019:7198" ph="SELECT Marca... vehiculos" />
+            <marker date="1520881734524" expanded="true" signature="7283:7463" ph="SELECT Model... vehiculos" />
+            <marker date="1520881734524" expanded="true" signature="7548:7728" ph="SELECT Preci... vehiculos" />
           </folding>
         </state>
       </provider>
