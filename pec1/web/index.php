@@ -1,7 +1,7 @@
 <?php
 	include 'operations.php';
 	$conexion=connectBBDD();
-	    
+	addInSession();
              
   ?>
 <!DOCTYPE html>
@@ -18,6 +18,8 @@
 
 
 <?php
+
+back();
 echo desplegables();
 
 ?>
