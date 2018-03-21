@@ -8,23 +8,27 @@ function connectBBDD()
     $mysql = new mysqli("127.0.0.1", "root", "", "concesionario");
     return $mysql;
 }
+
 function desplegables()
 {
     $html = "";
-    if (!isset($_SESSION["marca"]) && !isset($_SESSION["modelo"]) && !isset($_SESSION["age"]) && !isset($_SESSION["sales"]) && !isset($_GET["buscar"])) {
+    if ((!isset($_SESSION["marca"]) && !isset($_POST["buscar"])) || ((isset($_POST["modelo"]) && isset($_POST["back"])))) {
         $html = '<select name="marca">' . selectBrand() . '</select>';
         $html .= "<select disabled name='modelo'><option>No disponible</option></select>";
         $html .= "<select disabled name='age'><option>No disponible</option></select>";
         $html .= "<select disabled name='sales'><option>No disponible</option></select></fieldset>";
         $html .= "<input type='submit' value='Siguiente'>";
-    } else if (isset($_SESSION["marca"]) && !isset($_SESSION["modelo"]) && !isset($_SESSION["age"]) && !isset($_SESSION["sales"]) && !isset($_GET["buscar"])) {
+    } 
+    else if (!isset($_SESSION["modelo"]) && !isset($_POST["buscar"]) || (isset($_POST["age"]) && isset($_POST["back"]))) {
         $html = $_SESSION["marca"] . "\t";
         $html .= "<select name='modelo'>" . selectModel($_SESSION["marca"]) . "</select>";
         $html .= "<select disabled name='age'><option>No disponible</option></select>";
         $html .= "<select disabled name='sales'><option>No disponible</option></select></fieldset>";
         $html .= "<input name='back' type='submit' value='Anterior'>";
+        $html .= "<input name='reset' type='submit' value='Reset'>";
         $html .= "<input type='submit' value='Siguiente'>";
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && !isset($_SESSION["age"]) && !isset($_SESSION["sales"]) && !isset($_GET["buscar"])) {
+    } 
+    else if (!isset($_SESSION["age"]) && !isset($_POST["buscar"]) || (isset($_POST["sales"]) && isset($_POST["back"]))) {
         $html = $_SESSION["marca"] . "\t-\t";
         $html .= $_SESSION["modelo"] . "\t";
         $html .= "<select name='age'>";
@@ -34,8 +38,10 @@ function desplegables()
         $html .= "<option value=4> > 10 </option></select>";
         $html .= "<select disabled name='sales'><option>No disponible</option></select></fieldset>";
         $html .= "<input name='back' type='submit' value='Anterior'>";
+        $html .= "<input name='reset' type='submit' value='Reset'>";
         $html .= "<input type='submit' value='Siguiente'> ";
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && !isset($_SESSION["sales"]) && !isset($_GET["buscar"])) {
+    } 
+    else if (!isset($_SESSION["sales"]) && (!isset($_POST["sales"]) && !isset($_POST["back"])) && !isset($_POST["buscar"]) && isset($_POST["age"]) ) {
         $html = $_SESSION["marca"] . "\t-\t";
         $html .= $_SESSION["modelo"] . "\t-\t";
         $html .= insertAge($_SESSION["age"]) . "\t-\t";
@@ -45,21 +51,26 @@ function desplegables()
         $html .= "<option value=3> Entre 3000 y 6000</option>";
         $html .= "<option value=4> Mas de 6000</option></select></fieldset>";
         $html .= "<input name='back' type='submit' value='Anterior'>";
+        $html .= "<input name='reset' type='submit' value='Reset'>";
         $html .= "<input type='submit' value='Siguiente'>";
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_SESSION["sales"]) &&  !isset($_GET["buscar"])) {
+    } 
+    else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_SESSION["sales"]) && !isset($_POST["buscar"])) {
         $html = $_SESSION["marca"] . "\t-\t";
         $html .= $_SESSION["modelo"] . "\t-\t";
-        $html .= $_SESSION["age"] . "\t-\t";
+        $html .= insertAge($_SESSION["age"]) . "\t-\t";
         $html .= insertSales($_SESSION["sales"]);
         $html .= "<input name='buscar' type='submit' value='Buscar'></fieldset>";
         $html .= "<input name='back' type='submit' value='Anterior'>";
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_SESSION["sales"]) && isset($_GET["buscar"])) {
-       
+        $html .= "<input name='reset' type='submit' value='Reset'>";
+    } 
+    else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_SESSION["sales"]) && isset($_POST["buscar"])) {
         $html .= showCars();
-
+    }else{
+         $html = "<input name='reset' type='submit' value='Reset'>";
     }
     return $html;
 }
+
 function insertAge($age)
 {
     $res = "";
@@ -79,6 +90,7 @@ function insertAge($age)
     }
     return $res;
 }
+
 function insertSales($age)
 {
     $res = "";
@@ -98,6 +110,7 @@ function insertSales($age)
     }
     return $res;
 }
+
 function selectBrand()
 {
     global $mysql;
@@ -111,6 +124,7 @@ function selectBrand()
     }
     return $text;
 }
+
 function selectModel($marca)
 {
     global $mysql;
@@ -124,6 +138,7 @@ function selectModel($marca)
     }
     return $text;
 }
+
 function selectAge($age)
 {
     global $mysql;
@@ -145,6 +160,7 @@ function selectAge($age)
     }
     return $caso;
 }
+
 function selectSales($sales)
 {
     global $mysql;
@@ -166,6 +182,7 @@ function selectSales($sales)
     }
     return $caso;
 }
+
 function showCars()
 {
     global $mysql;
@@ -206,18 +223,20 @@ function showCars()
     $text .= "</table> ";
     return $text;
 }
+
 function addInSession()
 {
-    if (isset($_GET["marca"]) && !isset($_GET["modelo"]) && !isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])) {
-        $_SESSION["marca"] = $_GET["marca"];
-    } else if (isset($_SESSION["marca"]) && isset($_GET["modelo"]) && !isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])) {
-        $_SESSION["modelo"] = $_GET["modelo"];
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_GET["age"]) && !isset($_GET["sales"]) && !isset($_GET["buscar"])) {
-        $_SESSION["age"] = $_GET["age"];
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_GET["sales"])) {
-        $_SESSION["sales"] = $_GET["sales"];
+    if (isset($_POST["marca"]) && !isset($_POST["modelo"]) && !isset($_POST["age"]) && !isset($_POST["sales"]) && !isset($_POST["buscar"])) {
+        $_SESSION["marca"] = $_POST["marca"];
+    } else if (isset($_SESSION["marca"]) && isset($_POST["modelo"]) && !isset($_POST["age"]) && !isset($_POST["sales"]) && !isset($_POST["buscar"])) {
+        $_SESSION["modelo"] = $_POST["modelo"];
+    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_POST["age"]) && !isset($_POST["sales"]) && !isset($_POST["buscar"])) {
+        $_SESSION["age"] = $_POST["age"];
+    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_POST["sales"]) && !isset($_POST["buscar"])) {
+        $_SESSION["sales"] = $_POST["sales"];
     }
 }
+
 function getSession($status)
 {
     $res = "";
@@ -237,27 +256,29 @@ function getSession($status)
     }
     return $res;
 }
+
 function back()
 {
-    if (isset($_GET["back"])) {
-        $status = 0;
-        while ($status < count($_SESSION)) {
-            $status++;
-            $sesion = getSession($status);
-            echo "entra";
-            if ((!isset($_SESSION['"$sesion"']) && $sesion != "marca") || ($sesion == "sales")) { 
-                    $sesion = getSession($status--);
-                    unset($_SESSION['"$sesion"']);
-                    $status = (count($_SESSION) - 1);
-                     echo "$_SESSION[$sesion] ***";
-            } else if ($sesion=="marca" && !isset($_SESSION["modelo"])){
-                echo "test";
-                session_destroy();
+    if (isset($_POST["reset"])) {
+        unset($_SESSION);
+        session_destroy();
+    } else if (isset($_POST["back"])) {
+        for ($i = 1; $i <= 4; $i++) {
+            if ($i == count($_SESSION)) {
+                $status = '"' . getSession($i) . '"';
+                $status2 = '"' . getSession(--$i) . '"';
+                echo $status;
+                unset($_SESSION[$status]);
+                echo $_POST[$status2];
+                unset($_POST[$status2]);
+
+                //header("Location:index.php?" . $status2 . "=" . $_SESSION[$status2]);
+                $i = 4;
             }
-            $status++;
         }
     }
 }
+
 function createCar($car)
 {
     $text = "<table><tr><th>Foto</th>";
@@ -273,4 +294,3 @@ function createCar($car)
     }
 }
 
-?>

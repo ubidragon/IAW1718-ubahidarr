@@ -1,4 +1,5 @@
 <?php
+
 	include 'operations.php';
 	$conexion=connectBBDD();
 	addInSession();
@@ -13,7 +14,7 @@
 </head>
 <body>
 <h1>PEC Implantacion de Aplicaciones Web</h1>
-<form method='get' action='index.php'>
+<form method="post" action='index.php'>
 <fieldset>
 
 
