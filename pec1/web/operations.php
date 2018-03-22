@@ -102,13 +102,13 @@ function desplegables()
 
 function status()
 {
-    static $status =0;
+    static $status = 0;
     if (isset($_POST["marca"]) && !isset($_SESSION["modelo"])) {
         $status = 1;
     } else if (isset($_SESSION["marca"]) && isset($_POST["modelo"]) && !isset($_SESSION["age"])) {
         $status = 2;
     } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_POST["age"]) && !isset($_SESSION["sales"])) {
-        $status =3;
+        $status = 3;
     } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_POST["sales"])) {
         $status = 4;
     }
@@ -116,7 +116,7 @@ function status()
         if (isset($_SESSION)) {
             $status = count($_SESSION) - 1;
         }
-        
+
         unset($_POST["back"]);
     }
     if (isset($_POST["buscar"]) && !isset($_POST["back"])) {
@@ -348,10 +348,10 @@ function back()
                 unset($_SESSION["$status"]);
                 $i = 4;
             }
-            if (count($_SESSION)==1){
+            if (count($_SESSION) == 1) {
                 unset($_SESSION);
-        session_destroy();
-            } 
+                session_destroy();
+            }
         }
 
 
