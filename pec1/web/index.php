@@ -2,8 +2,8 @@
 
 	include 'operations.php';
 	$conexion=connectBBDD();
-	addInSession();
-             
+	 //back();
+            
   ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 
 <?php
 
-back();
+
 echo desplegables();
 
 ?>

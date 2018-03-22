@@ -1,3 +1,4 @@
+
 img{
 	width: 10em;
 	height: 6em;
@@ -8,4 +9,16 @@ td, tr{
 	height: 6em;
 	border-style: groove;
 	text-align: center;
+}
+
+input {
+	input:first-child;
+	margin-top: 0.5em;
+	margin-left: 5em;
+	height: 5em;
+	width: 6em;
+}
+
+#coche{
+	margin:10%;
 }
