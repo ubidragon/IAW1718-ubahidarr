@@ -1,5 +1,4 @@
-﻿
-CREATE DATABASE Concesionario CHARSET utf8 COLLATE utf8_spanish_ci;
+﻿CREATE DATABASE concesionario CHARSET utf8 COLLATE utf8_spanish_ci;
 
 USE Concesionario;
 
@@ -89,7 +88,7 @@ VALUES 	('PEUGEOT','208','2016/01/01',12000),
 		('PEUGEOT','3008','2012/03/31',10500),
 		('PEUGEOT','3008','2010/05/31',6700),
 		('PEUGEOT','3008','2006/01/19',4700),
-		('PEUGEOT','3008','2009/01/01',3000);
+		('PEUGEOT','3008','2009/01/01',3000),
 		('SEAT','IBIZA','2016/01/01',12000),
 		('SEAT','IBIZA','2010/01/01',2000),
 		('SEAT','IBIZA','2010/07/01',5000),
