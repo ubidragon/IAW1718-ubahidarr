@@ -1,4 +1,4 @@
-﻿CREATE DATABASE concesionario CHARSET utf8 COLLATE utf8_spanish_ci;
+CREATE DATABASE concesionario SET CHARSET utf8 COLLATE utf8_spanish_ci;
 
 USE Concesionario;
 

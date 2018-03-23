@@ -13,7 +13,7 @@ function desplegables()
 {
     $html = "";
     addInSession();
-    back();
+   
 
     switch (status()) {
         case 0:

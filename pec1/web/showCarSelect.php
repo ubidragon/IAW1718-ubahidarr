@@ -18,7 +18,7 @@
 
 <?php
 
-echo $_GET["id"];
+
 echo createCar($_GET["id"]);
 
 ?>

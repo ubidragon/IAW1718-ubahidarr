@@ -2,7 +2,7 @@
 
 	include 'operations.php';
 	$conexion=connectBBDD();
-	 //back();
+	 back();
             
   ?>
 <!DOCTYPE html>
