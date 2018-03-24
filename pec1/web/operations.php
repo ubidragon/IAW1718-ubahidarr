@@ -13,8 +13,6 @@ function desplegables()
 {
     $html = "";
     addInSession();
-   
-
     switch (status()) {
         case 0:
             $html = '<select name="marca">' . selectBrand() . '</select>';
@@ -23,11 +21,10 @@ function desplegables()
             $html .= "<select disabled name='sales'><option>No disponible</option></select></fieldset>";
             $html .= reseteo();
             $html .= "<input type='submit' value='Siguiente'>";
-            /*         echo '<pre>';
+                    /* echo '<pre>';
                      var_dump($_SESSION);
                      echo '</pre>';*/
             break;
-
         case 1:
             $html = $_SESSION["marca"] . "\t";
             $html .= "<select name='modelo'>" . selectModel($_SESSION["marca"]) . "</select>";
@@ -36,7 +33,7 @@ function desplegables()
             $html .= "<input name='back' type='submit' value='Anterior'>";
             $html .= reseteo();
             $html .= "<input type='submit' value='Siguiente'>";
-            /*            echo '<pre>';
+                    /*   echo '<pre>';
                         var_dump($_SESSION);
                         echo '</pre>';*/
             break;
@@ -52,7 +49,7 @@ function desplegables()
             $html .= "<input name='back' type='submit' value='Anterior'>";
             $html .= reseteo();
             $html .= "<input type='submit' value='Siguiente'> ";
-            /*        echo '<pre>';
+                /*    echo '<pre>';
                     var_dump($_SESSION);
                     echo '</pre>';*/
             break;
@@ -68,7 +65,7 @@ function desplegables()
             $html .= "<input name='back' type='submit' value='Anterior'>";
             $html .= reseteo();
             $html .= "<input type='submit' value='Siguiente'>";
-            /*     echo '<pre>';
+                /* echo '<pre>';
                  var_dump($_SESSION);
                  echo '</pre>';*/
             break;
@@ -102,23 +99,29 @@ function desplegables()
 
 function status()
 {
-    static $status = 0;
-    if (isset($_POST["marca"]) && !isset($_SESSION["modelo"])) {
+     $status = 0;
+    if (!isset($_SESSION)) {
+         $status = 0;
+    }
+   
+    else if (count($_SESSION)==1) {
         $status = 1;
-    } else if (isset($_SESSION["marca"]) && isset($_POST["modelo"]) && !isset($_SESSION["age"])) {
+    } else if (count($_SESSION)==2) {
         $status = 2;
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_POST["age"]) && !isset($_SESSION["sales"])) {
+    } else if (count($_SESSION)==3) {
         $status = 3;
-    } else if (isset($_SESSION["marca"]) && isset($_SESSION["modelo"]) && isset($_SESSION["age"]) && isset($_POST["sales"])) {
+    } else if (count($_SESSION)==4) {
         $status = 4;
     }
-    if (isset($_POST["back"])) {
+   /*
+   Iba 2 pasos para detras asi que el fallo ewstab aqui.
+   if (isset($_POST["back"])) {
         if (isset($_SESSION)) {
             $status = count($_SESSION) - 1;
         }
 
         unset($_POST["back"]);
-    }
+    }*/
     if (isset($_POST["buscar"]) && !isset($_POST["back"])) {
         $status = 5;
     } else if (isset($_POST["buscar"]) && isset($_POST["back"])) {
@@ -348,7 +351,7 @@ function back()
                 unset($_SESSION["$status"]);
                 $i = 4;
             }
-            if (count($_SESSION) == 1) {
+            if (count($_SESSION) == 0) {
                 unset($_SESSION);
                 session_destroy();
             }
